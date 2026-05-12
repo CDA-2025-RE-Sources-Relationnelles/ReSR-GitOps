@@ -41,7 +41,7 @@ spec:
     spec:
       containers:
         - name: resr-api
-          image: ghcr.io/cda-2025-re-sources-relationnelles/resr-api:v1.0.10
+          image: ghcr.io/cda-2025-re-sources-relationnelles/resr-api:latest
           args: ["-n", "-d"]
           ports:
             - containerPort: 8080
