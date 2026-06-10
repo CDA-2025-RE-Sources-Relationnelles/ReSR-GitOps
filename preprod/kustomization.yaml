@@ -1,0 +1,11 @@
+resources:
+  - resr-secret.yaml
+  - tls-secret.yaml
+
+  - deploy.yaml
+
+  - postgres.yaml
+
+  - resr-api.yaml
+  - resr-frontoffice-web.yaml
+  - resr-backoffice-web.yaml
