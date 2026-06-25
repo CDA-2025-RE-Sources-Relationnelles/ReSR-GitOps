@@ -27,7 +27,7 @@ spec:
           env:
             - name: MAILDEV_SMTP_PORT
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: resr-secret
                   key: Smtp__Port
 
