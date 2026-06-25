@@ -5,6 +5,7 @@ resources:
   - deploy.yaml
 
   - postgres.yaml
+  - maildev.yaml
 
   - resr-api.yaml
   - resr-frontoffice-web.yaml

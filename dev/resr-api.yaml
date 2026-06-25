@@ -25,6 +25,17 @@ spec:
                 port:
                   number: 8080
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: resr-api-logs
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -41,16 +52,26 @@ spec:
     spec:
       containers:
         - name: resr-api
-          image: ghcr.io/cda-2025-re-sources-relationnelles/resr-api@sha256:09fda733b503769deeb140dca218e3697f7704362deba8d0493e327a07513dc0
+          image: ghcr.io/cda-2025-re-sources-relationnelles/resr-api:4063497fd15bd213af158338ba0c456ceffee628
           args: ["-n", "-d"]
           ports:
             - containerPort: 8080
+
+          volumeMounts:
+            - name: logs-volume
+              mountPath: /logs
+
           envFrom:
             - secretRef:
                 name: resr-secret
           env:
             - name: ASPNETCORE_URLS
               value: "http://+:8080"
+
+      volumes:
+        - name: logs-volume
+          persistentVolumeClaim:
+            claimName: resr-api-logs
 ---
 apiVersion: v1
 kind: Service

@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maildev
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: maildev
+
+  template:
+    metadata:
+      labels:
+        app: maildev
+
+    spec:
+      containers:
+        - name: maildev
+          image: maildev/maildev:2.2.1
+          ports:
+            - name: web
+              containerPort: 1080
+            - name: maildev
+              containerPort: 1025
+
+          env:
+            - name: MAILDEV_SMTP_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: resr-secret
+                  key: Smtp__Port
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: maildev
+
+spec:
+  selector:
+    app: maildev
+
+  ports:
+    - name: web
+      port: 1080
+      targetPort: 1080
+    - name: maildev
+      port: 1025
+      targetPort: 1025
