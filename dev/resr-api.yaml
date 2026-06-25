@@ -52,7 +52,7 @@ spec:
     spec:
       containers:
         - name: resr-api
-          image: ghcr.io/cda-2025-re-sources-relationnelles/resr-api@sha256:6649431e289bb9dec3b3f098cd7487ba08942250de7ed462f4fd6cfb667851be
+          image: ghcr.io/cda-2025-re-sources-relationnelles/resr-api@sha256:a0e1d09aca992a7154ae47ff71bbf67e4891581b004ec46425a1eb4275a2a01c
           args: ["-n", "-d"]
           ports:
             - containerPort: 8080
