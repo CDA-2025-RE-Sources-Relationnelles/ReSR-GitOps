@@ -41,7 +41,7 @@ spec:
     spec:
       containers:
         - name: resr-backoffice-web
-          image: ghcr.io/cda-2025-re-sources-relationnelles/resr-backoffice-web:latest
+          image: ghcr.io/cda-2025-re-sources-relationnelles/resr-backoffice-web@sha256:7ffb477fe2f21c18cbc3b84e27de7f483db456d1db90b5e8d4782a14d415d4b6
           ports:
             - containerPort: 3000
 ---
