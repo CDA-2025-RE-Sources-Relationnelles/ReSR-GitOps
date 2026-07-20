@@ -41,7 +41,7 @@ spec:
     spec:
       containers:
         - name: resr-frontoffice-web
-          image: ghcr.io/cda-2025-re-sources-relationnelles/resr-frontoffice-web:latest
+          image: ghcr.io/cda-2025-re-sources-relationnelles/resr-frontoffice-web@sha256:6c6158b4f442f4416a0568a05d7c31aab945434716a42564e0fdefe5a45ff768
           ports:
             - containerPort: 3000
 ---
